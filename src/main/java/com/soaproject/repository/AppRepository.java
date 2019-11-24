@@ -14,7 +14,6 @@ import java.util.List;
  * @author nthop
  */
 public interface AppRepository{
-    //public App findAppById(int i);
     public List<App> findAll();
     public String findNameById(int id);
     public List<UserReview> findUserReviewsById(int id);

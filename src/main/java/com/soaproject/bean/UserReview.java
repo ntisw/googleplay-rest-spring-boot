@@ -10,11 +10,11 @@ package com.soaproject.bean;
  * @author nthop
  */
 public class UserReview {
-    public String app_name;
-    public String translated_review;
-    public String sentiment;
-    public String sentiment_polarity;
-    public String sentiment_subjectivity;
+    private String app_name;
+    private String translated_review;
+    private String sentiment;
+    private String sentiment_polarity;
+    private String sentiment_subjectivity;
 
     public UserReview(String app_name, String translated_review, String sentiment, String sentiment_polarity, String sentiment_subjectivity) {
         this.app_name = app_name;

@@ -5,30 +5,41 @@
  */
 package com.soaproject.bean;
 
-import java.util.List;
+//import java.util.List;
 
 /**
  *
  * @author nthop
  */
 public class App {
-    public List<UserReview> userReviews;
-    public String name;
-    public String category;
-    public String rating;
-    public int reviews;
-    public String size;
-    public String installs;
-    public String type;
-    public float price;
-    public String content_rating;
-    public String genres;
-    public String last_updated;
-    public String current_ver;
-    public String android_ver;
+    //public List<UserReview> userReviews;
+    private String name;
+    private String category;
+    private String rating;
+    private int reviews;
+    private String size;
+    private String installs;
+    private String type;
+    private float price;
+    private String content_rating;
+    private String genres;
+    private String last_updated;
+    private String current_ver;
+    private String android_ver;
 
-    public App(List<UserReview> userReviews, String name, String category, String rating, int reviews, String size, String installs, String type, float price, String content_rating, String genres, String last_updated, String current_ver, String android_ver) {
-        this.userReviews = userReviews;
+    public App(
+            //List<UserReview> userReviews, 
+            String name, String category, 
+            String rating, int reviews, 
+            String size, String installs, 
+            String type, float price, 
+            String content_rating, 
+            String genres, 
+            String last_updated, 
+            String current_ver, 
+            String android_ver
+    ) {
+        //this.userReviews = userReviews;
         this.name = name;
         this.category = category;
         this.rating = rating;
@@ -43,7 +54,7 @@ public class App {
         this.current_ver = current_ver;
         this.android_ver = android_ver;
     }
-
+/*
     public List<UserReview> getUserReviews() {
         return userReviews;
     }
@@ -51,7 +62,7 @@ public class App {
     public void setUserReviews(List<UserReview> userReviews) {
         this.userReviews = userReviews;
     }
-
+*/
     public String getName() {
         return name;
     }

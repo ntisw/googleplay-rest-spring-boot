@@ -34,12 +34,13 @@ public class JdbcAppRepository implements AppRepository {
                         rs.getString("sentiment_subjectivity")
                 ));
     }
-
+    
     @Override
     public List<App> findAll() {
         return jdbcTemplate.query("select*from app limit 10",
                 (rs, rowNum)
-                -> new App(getUserReviews(rs.getString("name")),
+                -> new App(
+                        //getUserReviews(rs.getString("name")),
                         rs.getString("name"),
                         rs.getString("category"),
                         rs.getString("rating"),
