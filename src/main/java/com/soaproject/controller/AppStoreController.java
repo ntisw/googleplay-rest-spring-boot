@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -67,6 +69,20 @@ public class AppStoreController {
     @CrossOrigin
     public List<App> findAppsByCategory(@PathVariable String name) {
         return appRepository.findAppsByCategory(name);
+    }
+    
+    @RequestMapping("/api/apps")
+    @CrossOrigin
+    @ResponseBody
+    public List<App> findAppsByCategory(@RequestParam float start,float end) {
+        return appRepository.findAppsByRating(start,end);
+    }
+    
+    @RequestMapping("/api/apps")
+    @CrossOrigin
+    @ResponseBody
+    public List<App> findAppsByCategory(@RequestParam int reviews) {
+        return appRepository.findAppsByCountOfReviews(reviews);
     }
     
 }
