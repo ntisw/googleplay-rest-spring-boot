@@ -6,7 +6,9 @@
 package com.soaproject.controller;
 
 import com.soaproject.bean.App;
+import com.soaproject.bean.Category;
 import com.soaproject.bean.UserReview;
+import com.soaproject.bean.Type;
 import com.soaproject.repository.AppRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,7 @@ public class AppStoreController {
     public List<App> findAll() {
         return appRepository.findAll();
     }
-
+    
     @RequestMapping("/get/{id}")
     @CrossOrigin
     public String getNameById(@PathVariable int id) {
@@ -40,6 +42,18 @@ public class AppStoreController {
     @RequestMapping("/reviews/{id}")
     @CrossOrigin
     public List<UserReview> getReviewById(@PathVariable int id) {
-        return appRepository.findUserReviewsById(id);
+        return appRepository.getUserReviewsById(id);
+    }
+    
+    @RequestMapping("/category/all")
+    @CrossOrigin
+    public List<Category> getCategories() {
+        return appRepository.getAllCategories();
+    }
+    
+    @RequestMapping("/type/all")
+    @CrossOrigin
+    public List<Type> getTypes() {
+        return appRepository.getAllTypes();
     }
 }
