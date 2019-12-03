@@ -71,7 +71,7 @@ public class JdbcAppRepository implements AppRepository {
     }
 
     @Override
-    public List<App> findAppByName(String name) {
+    public List<App> findAppsByName(String name) {
         return jdbcTemplate.query("select*from app where name like ?", new Object[]{"%"+name+"%"},
                 (rs, rowNum)
                 -> new App(
@@ -93,8 +93,8 @@ public class JdbcAppRepository implements AppRepository {
     }
 
     @Override
-    public List<App> findAppByCategory(String category) {
-        return jdbcTemplate.query("select*from app where category = '?'", new Object[]{category},
+    public List<App> findAppsByCategory(String category) {
+        return jdbcTemplate.query("select*from app where category = ?", new Object[]{category},
                 (rs, rowNum)
                 -> new App(
                         //getUserReviews(rs.getString("name")),
@@ -115,7 +115,7 @@ public class JdbcAppRepository implements AppRepository {
     }
 
     @Override
-    public List<App> findAppByRating(float rating_start, float rating_end) {
+    public List<App> findAppsByRating(float rating_start, float rating_end) {
         return jdbcTemplate.query("select*from app where rating between ? and ?", new Object[]{rating_start, rating_end},
                 (rs, rowNum)
                 -> new App(
@@ -137,7 +137,7 @@ public class JdbcAppRepository implements AppRepository {
     }
 
     @Override
-    public List<App> findAppByCountOfReviews(int reviews) {
+    public List<App> findAppsByCountOfReviews(int reviews) {
         return jdbcTemplate.query("select*from app where reviews > ?", new Object[]{reviews},
                 (rs, rowNum)
                 -> new App(
@@ -159,7 +159,7 @@ public class JdbcAppRepository implements AppRepository {
     }
 
     @Override
-    public List<App> findAppByType(String type) {
+    public List<App> findAppsByType(String type) {
         return jdbcTemplate.query("select*from app where type = ?", new Object[]{type},
                 (rs, rowNum)
                 -> new App(
@@ -181,7 +181,7 @@ public class JdbcAppRepository implements AppRepository {
     }
 
     @Override
-    public List<App> findAppByMostlyDownloaded(int downloaded) {
+    public List<App> findAppsByMostlyDownloaded(int downloaded) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

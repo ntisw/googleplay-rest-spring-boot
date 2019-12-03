@@ -21,12 +21,12 @@ public interface AppRepository{
     public List<Category> getAllCategories();
     public List<Type> getAllTypes();
     //for find app required
-    public List<App> findAppByName(String name);
-    public List<App> findAppByCategory(String category);
-    public List<App> findAppByRating(float rating_start,float rating_end);
-    public List<App> findAppByCountOfReviews(int count);
-    public List<App> findAppByType(String type);
-    public List<App> findAppByMostlyDownloaded(int downloaded);
+    public List<App> findAppsByName(String name);
+    public List<App> findAppsByCategory(String category);
+    public List<App> findAppsByRating(float rating_start,float rating_end);
+    public List<App> findAppsByCountOfReviews(int count);
+    public List<App> findAppsByType(String type);
+    public List<App> findAppsByMostlyDownloaded(int downloaded);
     public List<App> findAll();
     public String findNameById(int id);
     public List<UserReview> getUserReviewsById(int id);

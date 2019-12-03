@@ -57,10 +57,16 @@ public class AppStoreController {
         return appRepository.getAllTypes();
     }
     
-    @RequestMapping("/findapp/{name}")
+    @RequestMapping("/find/apps/name/{name}")
     @CrossOrigin
-    public List<App> findAppByName(@PathVariable String name) {
-        return appRepository.findAppByName(name);
+    public List<App> findAppsByName(@PathVariable String name) {
+        return appRepository.findAppsByName(name);
+    }
+    
+    @RequestMapping("/find/apps/category/{name}")
+    @CrossOrigin
+    public List<App> findAppsByCategory(@PathVariable String name) {
+        return appRepository.findAppsByCategory(name);
     }
     
 }
