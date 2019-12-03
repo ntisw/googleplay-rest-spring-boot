@@ -72,7 +72,7 @@ public class JdbcAppRepository implements AppRepository {
 
     @Override
     public List<App> findAppByName(String name) {
-        return jdbcTemplate.query("select*from app where app like '%?%'", new Object[]{name},
+        return jdbcTemplate.query("select*from app where name like ?", new Object[]{"%"+name+"%"},
                 (rs, rowNum)
                 -> new App(
                         //getUserReviews(rs.getString("name")),
