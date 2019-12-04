@@ -12,7 +12,7 @@ package com.soaproject.bean;
  * @author nthop
  */
 public class App {
-    //public List<UserReview> userReviews;
+    private int id;
     private String name;
     private String category;
     private String rating;
@@ -28,7 +28,7 @@ public class App {
     private String android_ver;
 
     public App(
-            //List<UserReview> userReviews, 
+            int id,
             String name, String category, 
             String rating, int reviews, 
             String size, String installs, 
@@ -39,7 +39,7 @@ public class App {
             String current_ver, 
             String android_ver
     ) {
-        //this.userReviews = userReviews;
+        this.id = id;
         this.name = name;
         this.category = category;
         this.rating = rating;
@@ -54,15 +54,14 @@ public class App {
         this.current_ver = current_ver;
         this.android_ver = android_ver;
     }
-/*
-    public List<UserReview> getUserReviews() {
-        return userReviews;
+
+    public int getId() {
+        return id;
     }
 
-    public void setUserReviews(List<UserReview> userReviews) {
-        this.userReviews = userReviews;
+    public void setId(int id) {
+        this.id = id;
     }
-*/
     public String getName() {
         return name;
     }

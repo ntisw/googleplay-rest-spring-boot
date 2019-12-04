@@ -41,9 +41,10 @@ public class AppStoreController {
         return appRepository.findNameById(id);
     }
 
-    @RequestMapping("/reviews/{id}")
+    @RequestMapping("/reviews")
     @CrossOrigin
-    public List<UserReview> getReviewById(@PathVariable int id) {
+    @ResponseBody
+    public List<UserReview> getReviewById(@RequestParam int id) {
         return appRepository.getUserReviewsById(id);
     }
     
@@ -53,36 +54,96 @@ public class AppStoreController {
         return appRepository.getAllCategories();
     }
     
+    
+    
     @RequestMapping("/type/all")
     @CrossOrigin
     public List<Type> getTypes() {
         return appRepository.getAllTypes();
     }
     
-    @RequestMapping("/find/apps/name/{name}")
+    @RequestMapping("/content_rating/all")
     @CrossOrigin
-    public List<App> findAppsByName(@PathVariable String name) {
+    public List<Type> getAllTypesOfContentRating() {
+        return appRepository.getAllTypeOfContentRating();
+    }
+    
+    @RequestMapping("/games/genres/all")
+    @CrossOrigin
+    public List<Category> getAllGenresOfGame() {
+        return appRepository.getAllGenresOfGame();
+    }
+    
+    @RequestMapping("/find/apps/name")
+    @CrossOrigin
+    @ResponseBody
+    public List<App> findAppsByName(@RequestParam String name) {
         return appRepository.findAppsByName(name);
     }
     
-    @RequestMapping("/find/apps/category/{name}")
-    @CrossOrigin
-    public List<App> findAppsByCategory(@PathVariable String name) {
-        return appRepository.findAppsByCategory(name);
-    }
-    
-    @RequestMapping("/api/apps")
+    @RequestMapping("/find/apps/category")
     @CrossOrigin
     @ResponseBody
-    public List<App> findAppsByCategory(@RequestParam float start,float end) {
-        return appRepository.findAppsByRating(start,end);
+    public List<App> findAppsByCategory(@RequestParam String category) {
+        return appRepository.findAppsByCategory(category);
     }
     
-    @RequestMapping("/api/apps")
+    @RequestMapping("/find/apps/rating")
+    @CrossOrigin
+    @ResponseBody
+    public List<App> findAppsByCategory(@RequestParam float start) {
+        return appRepository.findAppsByRating(start);
+    }
+    
+    @RequestMapping("/find/apps/review")
     @CrossOrigin
     @ResponseBody
     public List<App> findAppsByCategory(@RequestParam int reviews) {
         return appRepository.findAppsByCountOfReviews(reviews);
     }
     
+    @RequestMapping("/find/apps/type")
+    @CrossOrigin
+    @ResponseBody
+    public List<App> findAppsByType(@RequestParam String type) {
+        return appRepository.findAppsByType(type);
+    }
+    
+    @RequestMapping("/find/apps/games/genres")
+    @CrossOrigin
+    @ResponseBody
+    public List<App> findGamesByGenres(@RequestParam String genres) {
+        return appRepository.findGameByGenres(genres);
+    }
+    
+    @RequestMapping("/find/apps/content_rating")
+    @CrossOrigin
+    @ResponseBody
+    public List<App> findAppsByGenres(@RequestParam String content_rating) {
+        return appRepository.findAppsByContentRating(content_rating);
+    }
+    
+    @RequestMapping("/top/apps/download")
+    @CrossOrigin
+    public List<App> getTopAppsDownload() {
+        return appRepository.getTopAppsDownload();
+    }
+    
+    @RequestMapping("/top/apps/review")
+    @CrossOrigin
+    public List<App> getTopAppsReview() {
+        return appRepository.getTopAppsReview();
+    }
+    
+    @RequestMapping("/find/apps/most_review")
+    @CrossOrigin
+    public List<App> findAppsByMostReview(){
+        return appRepository.findAppsByMostReview();
+    }
+    
+    @RequestMapping("/find/apps/most_download")
+    @CrossOrigin
+    public List<App> findAppsByMostDownload(){
+        return appRepository.findAppsByMostDownload();
+    }
 }

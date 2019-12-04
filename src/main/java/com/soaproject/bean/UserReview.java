@@ -23,7 +23,7 @@ public class UserReview {
         this.sentiment_polarity = sentiment_polarity;
         this.sentiment_subjectivity = sentiment_subjectivity;
     }
-
+  
     public String getApp_name() {
         return app_name;
     }
